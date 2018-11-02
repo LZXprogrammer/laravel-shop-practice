@@ -15,4 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::get('/root', 'PagesController@root')->name('root');
+Route::get('/', 'PagesController@root')->name('root');
+
+Auth::routes();
+
