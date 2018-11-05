@@ -49,6 +49,16 @@ class UserAddressController extends Controller
         return redirect()->route('user_address.index');
     }
 
+    /**
+     * 新增修改收货地址页面
+     * 
+     * @param Model $user_address
+     */
+    public function edit(UserAddress $user_address)
+    {
+        return view('user_address.create_and_edit', ['address' => $user_address]);
+    }
+
 
 
 }

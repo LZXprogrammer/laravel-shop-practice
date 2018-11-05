@@ -7,7 +7,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2 class="text-center">
-      新增收货地址
+      修改收货地址
     </h2>
   </div>
   <div class="panel-body">
@@ -29,7 +29,7 @@
         <!-- 引入 csrf token 字段 -->
         {{ csrf_field() }}
         <!-- 注意这里多了 @change -->
-        <select-district @change="onDistrictChanged" inline-template>
+        <select-district :init-value="{{ json_encode([$address->province, $address->city, $address->district]) }}" @change="onDistrictChanged" inline-template>
           <div class="form-group">
             <label class="control-label col-sm-2">省市区</label>
             <div class="col-sm-3">
