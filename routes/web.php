@@ -30,16 +30,19 @@ Auth::routes();
 
 // });
 
- // 验证中间件的正确性
+ // 用户验证中间件
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/email_verify_notice', 'PagesController@emailVerifyNotice')->name('email_verify_notice');
     Route::get('/email_verification/send', 'EmailVerificationController@send')->name('email_verification.send');
     Route::get('/email_verification/verify', 'EmailVerificationController@verify')->name('email_verification.verify');
-    // 开始
+    
+    // 邮箱验证成功中间件
     Route::group(['middleware' => 'email_verified'], function() {
 
         Route::get('user_address', 'UserAddressController@index')->name('user_address.index');
+        Route::get('user_address/create', 'UserAddressController@create')->name('user_address.create');
+        Route::post('user_address', 'UserAddressController@store')->name('user_address.store');
         
     });
-    // 结束
+    
 });

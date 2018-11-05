@@ -5,7 +5,10 @@
 <div class="row">
 <div class="col-lg-10 col-lg-offset-1">
 <div class="panel panel-default">
-  <div class="panel-heading">收货地址列表</div>
+  <div class="panel-heading">
+    收货地址列表
+    <a href="{{ route('user_address.create') }}" class="pull-right"><button class="btn btn-primary">新增收货地址</button></a>
+  </div>
   <div class="panel-body">
     <table class="table table-bordered table-striped">
       <thead>

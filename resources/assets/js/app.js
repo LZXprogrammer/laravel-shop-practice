@@ -17,6 +17,10 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+// 引入省三级联动组件
+require('./components/SelectDistrict');
+require('./components/UserAddressesCreateAndEdit');
+
 const app = new Vue({
     el: '#app'
 });
