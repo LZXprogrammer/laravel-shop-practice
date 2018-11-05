@@ -34,4 +34,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 关联模型, 一个用户有多个地址
+     */
+    public function address()
+    {
+        return $this->hasMany('App\Models\UserAddress');
+    }
+
 }
