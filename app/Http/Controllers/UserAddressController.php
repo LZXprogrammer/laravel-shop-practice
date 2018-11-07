@@ -55,7 +55,10 @@ class UserAddressController extends Controller
      * @param Model $user_address
      */
     public function edit(UserAddress $user_address)
-    {
+    {   
+        // 验证是否是地址的拥有着
+        $this->authorize('own', $user_address);
+
         return view('user_address.create_and_edit', ['address' => $user_address]);
     }
 
@@ -63,7 +66,10 @@ class UserAddressController extends Controller
      * 修改收货地址
      */
     public function update(UserAddress $user_address, UserAddressRequest $request)
-    {
+    {   
+        // 验证是否是地址的拥有着
+        $this->authorize('own', $user_address);
+
         $user_address->update($request->only([
             'province',
             'city',
@@ -77,6 +83,17 @@ class UserAddressController extends Controller
         return redirect()->route('user_address.index');
     }
 
+    /**
+     * 删除收货地址
+     */
+    public function destroy(UserAddress $user_address)
+    {
+        // 验证是否是地址的拥有着
+        $this->authorize('own', $user_address);
+        
+        $user_address->delete();
 
+        return [];
+    }
 
 }
