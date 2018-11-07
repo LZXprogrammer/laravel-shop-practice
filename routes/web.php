@@ -43,7 +43,8 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('user_address/create', 'UserAddressController@create')->name('user_address.create');
         Route::post('user_address', 'UserAddressController@store')->name('user_address.store');
         Route::get('user_address/{user_address}', 'UserAddressController@edit')->name('user_address.edit');
-
+        Route::put('user_address/{user_address}', 'UserAddressController@update')->name('user_address.update');
+    
     });
     
 });
