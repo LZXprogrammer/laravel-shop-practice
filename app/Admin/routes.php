@@ -17,5 +17,8 @@ Route::group([
     $router->get('products', 'ProductsController@index');
     $router->get('products/create', 'ProductsController@create');
     $router->post('products', 'ProductsController@store');
+    
+    $router->delete('products/{id}', 'ProductsController@destroy');
+    // $router->resouce('products', 'ProductsController');
 
 });
